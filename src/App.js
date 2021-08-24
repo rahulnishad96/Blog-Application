@@ -8,7 +8,7 @@ import Home from "./pages/homePage/Home";
 function App() {
   return (
     <div className="App">
-      <h1 className="app-title">Blog Application</h1>
+      <h1 className="app-title">Blog Application with Redux</h1>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/addblog" component={AddPage}/>
