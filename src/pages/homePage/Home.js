@@ -9,6 +9,7 @@ function Home() {
     let {blogs} = useSelector(state => state.data);
     let history = useHistory();
     const [searchValue, setSearchValue] = useState("");
+    const [showMatch,setShowMatching] = useState(false);
     
     useEffect (()=> {
         dispatch(loadBlogs());
@@ -23,6 +24,8 @@ function Home() {
             history.push(`/detailsblog/${blog.id}`); 
           }
         });
+        setShowMatching(true);
+        setSearchValue("");
     };
 
     const list = blogs.map( (blog) => {
@@ -43,6 +46,7 @@ function Home() {
                 </form>
                 <button className="creat-button" type="submit" onClick={() => {history.push("/addblog")}}>Create New Blog</button>
             </div>
+            {showMatch && <h2 className="match-text">Match not found</h2>}
             {list}
         </div>
     )
